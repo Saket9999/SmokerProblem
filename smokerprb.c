@@ -20,9 +20,9 @@ int main(int argc, char *argv[])
 	
 	if (argc !=4)
 	{
-		write(1,"Need Argument 1 : Scientistic Name",35); write(1,"\n",1);
-		write(1,"Need Argument 2 : Left Fork no.",32); write(1,"\n",1);
-		write(1,"Need Argument 3 : Right Fork no.",33);	write(1,"\n",1);	
+		write(1,"Need Argument 1 : Name",35); write(1,"\n",1);
+//		write(1,"Need Argument 2 : ",32); write(1,"\n",1);
+//		write(1,"Need Argument 3 : Right Fork no.",33);	write(1,"\n",1);	
 		exit(0);
 	}	
 	left=atoi(argv[2]);	
@@ -52,8 +52,8 @@ int main(int argc, char *argv[])
 		write(1, "Create Error", 12);
 		exit(0);
 	}
-	len=sprintf(buf,"Descriptor: %d",id);
-	write(1,buf,len);
+//	len=sprintf(buf,"Descriptor: %d",id);
+//	write(1,buf,len);
 
 	while (1)
 	{
@@ -61,12 +61,12 @@ int main(int argc, char *argv[])
 		write(1, argv[1], sizeof(argv[1])+2 );
 		write(1,"\n",1);
 		write(1,"^^^^^^^^^^^^^^^",15);
-		write(1,"=====THINKING====", 16);
+		write(1,"=====WAITING====", 16);
 		write(1,"\n",1);
 			
 		sleep(rand()%3);
 
-		write(1,"=====HUNGRY=====", 16);
+		write(1,"=====SMOKING=====", 16);
 		write(1,"\n",1);
 		
 		sleep(rand()%3);
@@ -74,9 +74,10 @@ int main(int argc, char *argv[])
 		val=semop(id,&p1,1);
 		if (val == -1 )
 		{
-			write(1, "Left fork Error", 16);
+			write(1, " Error", 16);
 			exit(0);
 		}
+		
 		write(1,"Taken the Left Fork ", 20);
 		write(1,"\n",1);
 		//val= semctl(id,0, GETVAL, NULL);
@@ -90,7 +91,7 @@ int main(int argc, char *argv[])
 		write(1,"\n",1);
 		if (val ==-1 )
 		{
-			write(1, "Right fork Error", 16);
+			write(1, " 0000            t fork Error", 16);
 			exit(0);
 		}
 		write(1,"Taken the Right Fork ", 20);
